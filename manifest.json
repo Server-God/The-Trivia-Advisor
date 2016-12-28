@@ -1,0 +1,42 @@
+{
+    "name":"Trivia Cracker",
+    "version":"1.13",
+    "description":"Hack Trivia Crack. Trivia Cracker gives you infinite lives and spins, and selects the correct answer for you when you're stumped!",
+    "manifest_version": 2,
+    "incognito": "spanning",
+    "icons": { 
+        "16": "images/icons/icon16.png",
+        "48": "images/icons/icon48.png",
+        "128": "images/icons/icon.png"
+    },
+    "content_scripts":[{
+        "all_frames": true,
+        "matches":[
+            "*://*.preguntados.com/*"
+        ],
+        "js": ["jquery-1.11.1.min.js", "jqueryUI/jquery-ui-1.11.2/jquery-ui.min.js", "TriviaCrack.js", "triviaCracker.js"],
+        "css": ["jqueryUI/jquery-ui-1.11.2/jquery-ui-custom.css"],
+        "run_at":"document_start"
+    }],
+    "web_accessible_resources": [
+        "images/app/*",
+        "jqueryUI/jquery-ui-1.11.2/images/*"
+    ],
+    "page_action":{
+        "default_title": "Trivia Cracker"
+    },
+    "permissions": [
+        "identity",
+        "https://www.googleapis.com/",
+        "*://*.preguntados.com/*"
+    ],
+    "oauth2": {
+        "client_id": "873561317436-jd9cd6f06td4h10ciedj59bji7j820r5.apps.googleusercontent.com",
+        "scopes": [
+            "https://www.googleapis.com/auth/chromewebstore.readonly"
+        ]
+    },
+    "background": {
+        "scripts": ["jquery-1.11.1.min.js", "TriviaCrackNonGarglApi.js", "background.js"]
+    }
+}
